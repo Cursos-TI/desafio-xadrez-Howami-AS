@@ -5,7 +5,7 @@ int main() {
 
 
     //MOVIMENTANDO A TORRE 5 CASAS A DIREITA
-    int inicio_t = 1, inicio_b = 1, inicio_r = 1, inicio_c = 1, i;
+    int inicio_t = 1, inicio_b = 1, inicio_r = 1, inicio_c = 1, i = 1;
 
     while (inicio_t <= 5)
     {
@@ -20,7 +20,7 @@ printf("\n\n***************************************\n\n");
 
     do
     {
-        printf("[ %d:\n", inicio_b);
+        printf("[] %d:\n", inicio_b);
         inicio_b ++;
 
     } while (inicio_b <= 6);
@@ -38,15 +38,19 @@ printf("\n\n***************************************\n\n");
 
 printf("\n\n***************************************\n\n");
         //MOVIMENTO DO CAVALO COM LOOPS ANINHADOS
-    for (i = 1; i < 6; i++)
+   
+    while (i--)
     {
-        printf("[Direita] %d: \n", i);
-            for (inicio_c; inicio_c < 4; inicio_c++)
-            {
-                printf("[Cima] %d: \n", inicio_c);
-            }
-
-    } 
+        for ( int i = 0; i < 2; i++)
+        {
+            printf("Cima: \n");
+        }
         
-printf("O cavalo movimentou %d vezes a direita e %d vezes para cima!\n\n", i-1, inicio_c-1);
+    }printf("Direita:\n");
+    
+   
+        
+printf("O cavalo movimentou %d vezes para cima e %d vezes para direita!\n\n", i-1, inicio_c);
+
+return 0;
 }
