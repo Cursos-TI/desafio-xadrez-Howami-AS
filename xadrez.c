@@ -1,56 +1,69 @@
-#include <stdio.h>
+# include <stdio.h>
 
+//FUNÇÃO DEFINIDA PARA MOVIMENTAR TORRE
+void moverTorre(int num){
 
-int main() {
-
-
-    //MOVIMENTANDO A TORRE 5 CASAS A DIREITA
-    int inicio_t = 1, inicio_b = 1, inicio_r = 1, inicio_c = 1, i = 1;
-
-    while (inicio_t <= 5)
+    if (num > 0)
     {
-        printf("[] %d:\n", inicio_t);
-        inicio_t ++;
+        printf("Direita, ");
+        moverTorre(num - 1);
+
     }
-    printf("\nTorre movimentada %d casas a direita.\n", inicio_t-1);
+}
+//FUNÇÃO DEFINIDA PARA MOVIMENTAR BISPO
+void moverBispo(int num1){
 
-printf("\n\n***************************************\n\n");
+  if (num1 > 0)
+  {
     
-    //MOVIMENTANDO BISPO
-
-    do
-    {
-        printf("[] %d:\n", inicio_b);
-        inicio_b ++;
-
-    } while (inicio_b <= 6);
-    
-    printf("\nBispo movimentado %d casas Diagonalmente a Direita/Cima.\n", inicio_b-1);
-
-printf("\n\n***************************************\n\n");
-
-    //MOVIMENTO RAINHA
-
-    for(inicio_r; inicio_r <= 8; inicio_r ++)
-    {
-        printf("[] %d: \n", inicio_r);
-    } printf("\nRainha movimentou %d casas a Esquerda.\n", inicio_r-1);
-
-printf("\n\n***************************************\n\n");
-        //MOVIMENTO DO CAVALO COM LOOPS ANINHADOS
-   
-    while (i--)
-    {
-        for ( int i = 0; i < 2; i++)
+    for(int i = 0; i < 1; i++){
+        printf("Direita, ");
+        for (int j = 0; j < 1; j++)
         {
-            printf("Cima: \n");
+           printf("Cima, ");
         }
         
-    }printf("Direita:\n");
-    
-   
-        
-printf("O cavalo movimentou %d vezes para cima e %d vezes para direita!\n\n", i-1, inicio_c);
-
-return 0;
+    }
+    moverBispo(num1 - 1);
+  }
 }
+//FUNÇÃO DEFINIDA PARA MOVIMENTAR RAINHA
+void moverRainha(int num2){
+    if (num2 > 0)
+    {
+        printf("Esquerda, ");
+        moverRainha(num2 - 1);
+    }
+}
+
+
+int main(){
+
+    printf("\n\nMovimento da Torre: \n");
+    moverTorre(5);
+printf("\n\n******************************\n\n");
+
+    printf("Movimento do Bispo: \n");
+    moverBispo(6);
+printf("\n\n******************************\n\n");
+
+    printf("Movimento da Rainha: \n");
+    moverRainha(8);
+printf("\n\n******************************\n\n");
+
+    printf("Movimento do Cavalo.\n\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Cima, ");
+
+        if (i >= 1)
+        {
+            printf("Direita.\n\n");
+            break;
+        }
+
+    }
+    return 0;
+
+}
+
